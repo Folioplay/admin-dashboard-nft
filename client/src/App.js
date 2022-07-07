@@ -21,7 +21,7 @@ class App extends Component {
       const deployedNetwork = SimpleStorageContract.networks[networkId];
       const instance = new web3.eth.Contract(
         NFTMarketplaceContract.abi,
-        deployedNetwork && "0x99Dc6574e41B4c76e747BaDfe61aDec906e92624",
+        deployedNetwork && "0x635FA71793EB8d6f2f71D88560096805448a8E4C",
       );
 
       // Set web3, accounts, and contract to the state, and then proceed with an
@@ -72,7 +72,7 @@ class App extends Component {
 
     const ip1 = document.querySelector(".nft-address").value;
     const ip2 = document.querySelector(".user-address").value;
-    const response = await contract.methods.checkNFTowner(ip1,ip2);
+    const response = await contract.methods.checkNFTowner(ip1,ip2).call();
     const op = document.querySelector(".holdNFT-result");
     op.innerHTML = response;
   };
